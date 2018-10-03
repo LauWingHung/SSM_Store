@@ -10,6 +10,7 @@
         <module name="mapper" />
         <module name="service" />
         <module name="taotao-common" />
+        <module name="web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/taotao-parent/taotao-common" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-parent/taotao-manage" />
+    <file type="web" url="file://$PROJECT_DIR$/taotao-parent/web" />
     <type id="Spring" />
   </component>
   <component name="MavenProjectsManager">
@@ -11,6 +12,7 @@
         <option value="$PROJECT_DIR$/taotao-parent/pom.xml" />
         <option value="$PROJECT_DIR$/taotao-parent/taotao-common/pom.xml" />
         <option value="$PROJECT_DIR$/taotao-parent/taotao-manage/pom.xml" />
+        <option value="$PROJECT_DIR$/taotao-parent/web/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
