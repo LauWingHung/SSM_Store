@@ -16,6 +16,7 @@
         <module>service</module>
         <module>mapper</module>
         <module>web</module>
+        <module>web</module>
     </modules>
     <!-- 依赖管理 -->
     <dependencies>
