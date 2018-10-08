@@ -7,8 +7,8 @@ import java.util.List;
  * @author lyhpl
  * @Title: EasyUIDataGridResult
  * @ProjectName SSM_Store
- * @Description: TODO   展示数据的实体,包括商品的实体
- * @date 10/5/2018  11:06 AM
+ * @Description: TODO
+ * @date 10/8/2018  8:47 AM
  */
 public class EasyUIDataGridResult implements Serializable {
     private Integer total;

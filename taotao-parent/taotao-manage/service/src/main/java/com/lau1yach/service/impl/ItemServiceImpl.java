@@ -1,6 +1,5 @@
 package com.lau1yach.service.impl;
 
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lau1yach.common.entity.EasyUIDataGridResult;
 import com.lau1yach.entity.TbItem;
@@ -17,44 +16,33 @@ import java.util.List;
  * @Title: ItemServiceImpl
  * @ProjectName SSM_Store
  * @Description: TODO
- * @date 10/5/2018  11:17 AM
+ * @date 10/8/2018  8:53 AM
  */
 @Service
 public class ItemServiceImpl implements ItemService {
+    //注入mapper
 
     @Autowired
     private TbItemMapper tbItemMapper;
     @Override
     public EasyUIDataGridResult getItemList(Integer page, Integer rows) {
-
-        //1.设置分页的信息使用pagehelper
-        if (page == null) {
-            page = 1;
+        //设置分信息,使用pagehelper
+        if (page==null) {
+            page=1;
         }
-
-        if (rows == null) {
-            rows = 30;
+        if (rows==null) {
+            rows=30;
         }
-        PageHelper.startPage(page,rows);
-
-        //2.注入mapper
-
-
-        //3.创建example对象 不需要设置查询条件
+        //创建example对象
         TbItemExample example = new TbItemExample();
-
-        //4.根据mapper调用查询所有数据
+//        根据mapper调用查询所有数据的方法
         List<TbItem> list = tbItemMapper.selectByExample(example);
-
-        //5.获取到分页的信息
+        //设置分页信息
         PageInfo<TbItem> info = new PageInfo<>(list);
-
-        //6.封装到EasyUIDataGridResult
+//        封装到EasyUIDataGridResult
         EasyUIDataGridResult result = new EasyUIDataGridResult();
         result.setTotal((int) info.getTotal());
         result.setRows(info.getList());
-
-        //7.返回
         return result;
     }
 }

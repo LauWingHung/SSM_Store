@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/taotao-parent/taotao-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taotao-parent/taotao-manage" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taotao-parent/taotao-manage/entity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-parent/taotao-manage/interface" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taotao-parent/taotao-manage/mapper" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taotao-parent/taotao-manage/service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taotao-parent/web" charset="UTF-8" />

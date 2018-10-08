@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="entity" />
+        <module name="interface" />
         <module name="mapper" />
         <module name="service" />
         <module name="taotao-common" />
@@ -15,6 +16,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="entity" target="1.7" />
+      <module name="interface" target="1.7" />
       <module name="mapper" target="1.7" />
       <module name="service" target="1.7" />
       <module name="taotao-common" target="1.7" />
