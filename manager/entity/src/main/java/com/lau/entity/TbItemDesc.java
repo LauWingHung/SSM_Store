@@ -27,7 +27,7 @@ public class TbItemDesc {
         this.created = created;
     }
 
-    public Date getUpdated() {
+    public Date getUpdated(Date created) {
         return updated;
     }
 
