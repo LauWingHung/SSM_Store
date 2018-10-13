@@ -12,6 +12,11 @@
     <artifactId>portal-web</artifactId>
     <packaging>war</packaging>
     <dependencies>
+        <dependency>
+            <groupId>com.lau</groupId>
+            <artifactId>content-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>

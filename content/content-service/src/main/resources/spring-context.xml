@@ -9,7 +9,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 
-	<context:component-scan base-package="com.lau.service"/>
+	<context:component-scan base-package="com.lau.content.service"/>
 	<!-- 数据库连接池 -->
 	<!-- 加载配置文件 -->
 	<context:property-placeholder location="classpath:*.properties" />
@@ -37,14 +37,14 @@
 
 	<!-- 使用dubbo发布服务 -->
 	<!-- 提供方应用信息，用于计算依赖关系 -->
-	<!--<dubbo:application name="manager" />-->
-	<!--<dubbo:registry protocol="zookeeper" address="192.168.25.130:2181" />-->
-	<!--&lt;!&ndash; 用dubbo协议在20880端口暴露服务 &ndash;&gt;-->
-	<!--<dubbo:protocol name="dubbo" port="20880" />-->
-	<!--&lt;!&ndash; 声明需要暴露的服务接口 &ndash;&gt;-->
-	<!--<dubbo:service interface="com.lau.service.TestService" ref="testServiceImpl" />-->
-	<!--<dubbo:service interface="com.lau.service.ItemService" ref="itemServiceImpl" />-->
-	<!--<dubbo:service interface="com.lau.service.ItemCatService" ref="itemCatServiceImpl" />-->
+	<dubbo:application name="content" />
+	<dubbo:registry protocol="zookeeper" address="192.168.25.130:2181" />
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="20881" />
+	<!-- 声明需要暴露的服务接口 -->
+	<dubbo:service interface="com.lau.content.service.ContentCategoryService" ref="contentCategoryServiceImpl" />
+	<dubbo:service interface="com.lau.content.service.ContentService" ref="contentServiceImpl" />
+
 
 	<!-- 事务管理器 -->
 	<bean id="transactionManager"
@@ -72,4 +72,44 @@
 		<aop:advisor advice-ref="txAdvice"
 					 pointcut="execution(* com.lau.service.*.*(..))" />
 	</aop:config>
+
+	<!-- 配置单机版的连接 -->
+	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+		<constructor-arg name="host" value="127.0.0.1"></constructor-arg>
+		<constructor-arg name="port" value="6379"></constructor-arg>
+	</bean>
+	<bean id="jedisClientPool" class="com.lau.content.jedis.JedisClientPool"/>
+
+	<!-- 集群版的配置 -->
+	<bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
+		<constructor-arg>
+			<set>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="127.0.0.1"></constructor-arg>
+					<constructor-arg name="port" value="7001"></constructor-arg>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="127.0.0.1"></constructor-arg>
+					<constructor-arg name="port" value="7002"></constructor-arg>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="127.0.0.1"></constructor-arg>
+					<constructor-arg name="port" value="7003"></constructor-arg>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="127.0.0.1"></constructor-arg>
+					<constructor-arg name="port" value="7004"></constructor-arg>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="127.0.0.1"></constructor-arg>
+					<constructor-arg name="port" value="7005"></constructor-arg>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="127.0.0.1"></constructor-arg>
+					<constructor-arg name="port" value="7006"></constructor-arg>
+				</bean>
+			</set>
+		</constructor-arg>
+	</bean>
+	<bean id="jedisClientCluster" class="com.lau.content.jedis.JedisClientCluster"/>
 </beans>
